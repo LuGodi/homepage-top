@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+main section {
+  padding: 0 3em;
+}
+section.about {
+  position: relative;
+  /* background: linear-gradient(rgb(8, 145, 178) 80%, transparent 80%); */
+  padding-bottom: 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.5em;
+}
+
+.about-photo {
+  margin: 0;
+  height: 420px;
+  width: 320px;
+  position: relative;
+  background-color: pink;
+  box-shadow: 10px 5px 10px 0px #5454545b;
+  display: block;
+}
+.about-me-name {
+  text-align: center;
+  position: relative;
+  margin-top: -1em;
+}
+
+/* todo : acho que vai ter que ser grid pra fazer aquela quebra de texto lgl do modo tablet */
+/*n, float msm*/
+div.about-me {
+  background-color: white;
+  padding: 2em 1.4em;
+  flex-grow: 0;
+  box-shadow: 10px 5px 10px 0px #5454545b;
+  margin-right: 2em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  line-height: 2.5ch;
+  h1 {
+    margin-bottom: 0.5em;
+  }
+}
+div.about-me div.social-links {
+  text-align: end;
+  margin-top: 3em;
+  a svg {
+    width: 24px;
+    height: auto;
+    margin: 0 2px;
+  }
+}
+
+section.about::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* transform: translateY(-100px); */
+  background-color: rgb(8, 145, 178);
+  padding-bottom: 5em;
+
+  /* height: 30px; */
+  transform: translateY(-30%) scale(1.2) skewY(-15deg);
+  box-shadow: 10px 5px 10px 0px #5454545b;
+
+  z-index: -1;
+}
+.top-section {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: auto;
+  box-shadow: 10px 5px 10px 0px #5454545b;
+}
+.project-screenshot {
+  width: 300px;
+  height: 200px;
+  background-color: purple;
+}
+.project-description-wrapper {
+  padding: 0.8em 1.2em;
+}
+.project-name {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+div.project div.social-links {
+  text-align: end;
+
+  svg {
+    width: 16px;
+    height: auto;
+    margin: 0 2px;
+  }
+}
+
+a.github svg,
+a.linkedin svg,
+a.twitter svg {
+  width: 16px;
+  height: auto;
+  text-decoration: none;
+}
