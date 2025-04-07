@@ -16,7 +16,7 @@ main section {
   /* max-width: 1400px; */
 }
 section.about {
-  position: relative;
+  /* position: relative; */
   /* background: linear-gradient(rgb(8, 145, 178) 80%, transparent 80%); */
   padding-bottom: 4em;
   display: flex;
@@ -26,19 +26,28 @@ section.about {
   padding-top: 2.5em;
 }
 
+.img-wrapper {
+  display: grid;
+  grid-template-areas: "image";
+}
 .about-photo {
   margin: 0;
-  height: 420px;
-  width: 320px;
+  max-height: 420px;
+  width: 100%;
   position: relative;
-  background-color: pink;
+  object-fit: contain;
+  /* background-color: pink; */
   box-shadow: 10px 5px 10px 0px #5454545b;
   display: block;
+  grid-area: image;
 }
 .about-me-name {
   text-align: center;
-  position: relative;
-  transform: translateY(-1.2em);
+  grid-area: image;
+  align-self: end;
+  z-index: 1;
+  /* position: relative;
+  transform: translateY(-1.2em); */
 }
 h1 {
   margin-bottom: 0.5em;
