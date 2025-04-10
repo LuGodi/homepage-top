@@ -30,6 +30,9 @@ section.about {
 .img-wrapper {
   display: grid;
   grid-template-areas: "image";
+  flex-shrink: 0;
+  flex-basis: 30%;
+  justify-items: stretch;
 }
 .about-photo {
   margin: 0;
@@ -43,8 +46,6 @@ section.about {
   grid-area: image;
 }
 
-.about-photo {
-}
 .about-me-name {
   text-align: center;
   grid-area: image;
@@ -63,7 +64,7 @@ div.about-me {
   background-color: white;
   padding: 2em 1.4em;
   flex-grow: 0;
-  box-shadow: 10px 5px 10px 0px #5454545b;
+  box-shadow: -3px 13px 10px 0px #5454545b;
   margin-right: 2em;
   margin-top: 4em;
   margin-bottom: 4em;
@@ -102,6 +103,44 @@ section.about::after {
   display: flex;
   flex-direction: row;
 }
+@media (max-width: 1000px) {
+  section.about {
+    display: block;
+  }
+  div.about-me {
+    --img-offset-top: 12%;
+    margin-top: var(--img-offset-top);
+    padding-top: 5em;
+    font-size: 1.1rem;
+    h1 {
+      text-align: center;
+    }
+  }
+  .img-wrapper {
+    float: left;
+    margin-right: 2em;
+    margin-left: -2em;
+    /* grid-template-areas: "image name"; */
+  }
+  .about-photo {
+    aspect-ratio: 1/1;
+    width: 100%;
+  }
+  .about-me-name {
+    display: inline-block;
+    align-self: start;
+    justify-self: end;
+    margin-top: 12%;
+    /* this causes the name to span for a long width */
+    text-align: start;
+    font-size: 1.5rem;
+    transform-origin: bottom left;
+    transform: translateX(80%) scale(1.5);
+
+    grid-area: image;
+    width: fit-content;
+  }
+}
 section.my-work {
   --grid-col-max-size: 300px;
   margin-bottom: 4em;
@@ -122,7 +161,7 @@ section.my-work {
 .project {
   display: flex;
   flex-direction: column;
-  max-width: max(var(--grid-col-max-size), 30vw);
+  /* max-width: max(var(--grid-col-max-size), 30vw); */
   height: auto;
   box-shadow: 10px 5px 10px 0px #5454545b;
 }
