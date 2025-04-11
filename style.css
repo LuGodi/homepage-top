@@ -86,7 +86,7 @@ section.about::after {
   content: "";
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: -360px;
   right: 0;
   left: 0;
   /* transform: translateY(-100px); */
@@ -108,12 +108,14 @@ section.about::after {
 @media (max-width: 1000px) and (min-width: 500px) {
   section.about {
     display: block;
+    padding-left: 3em;
   }
   div.about-me {
     --img-offset-top: 12%;
     margin-top: var(--img-offset-top);
     padding-top: 5em;
     font-size: 1.1rem;
+    margin-right: 0;
     h1 {
       text-align: center;
     }
@@ -146,10 +148,13 @@ section.about::after {
     padding-left: 1.6em;
     padding-right: 1.6em;
   }
+  /* TODO remove this as soon as I make a more responsive grid */
+  ul.projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 499px) {
   main {
-    font-size: 1.4em;
   }
   section.my-work {
     text-align: center;
@@ -190,6 +195,17 @@ section.about::after {
 
   .projects {
   }
+  main section.contact-me {
+    padding: 0;
+    margin: 0;
+  }
+  .contact-me .contact-info {
+    padding: 1.4em;
+
+    h1 {
+      text-align: center;
+    }
+  }
 }
 section.my-work {
   --grid-col-max-size: 300px;
@@ -227,27 +243,27 @@ section.my-work {
 }
 .project-name {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 1em;
 }
-div.project div.social-links {
+div.project-name div.social-links {
   text-align: end;
 
   svg {
-    width: 16px;
+    width: 1.4em;
     height: auto;
     margin: 0 2px;
   }
 }
 
-a.github svg,
+/* a.github svg,
 a.linkedin svg,
 a.twitter svg {
   width: 16px;
   height: auto;
   text-decoration: none;
-}
+} */
 
 section.contact-me {
   display: flex;
@@ -259,6 +275,11 @@ section.contact-me {
 .contact-info {
   flex: 2 0 0%;
   padding-right: 1em;
+}
+.contact-info .social-links a svg {
+  width: 1.6em;
+  height: auto;
+  margin: 2em 2px;
 }
 .contact-info > span {
   margin-top: 2em;
@@ -275,8 +296,6 @@ img.contact-img {
   background-color: rgb(83, 83, 163);
   max-width: 100%;
   object-fit: cover;
-  /* width: 600px; */
-  /* height: 400px;
-  margin-left: auto;
-  padding-left: 60em; */
+  /* if this width is not set to 100% causes bugs flex wrapping on mobile */
+  width: 100%;
 }
