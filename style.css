@@ -36,7 +36,7 @@ section.about {
 }
 .about-photo {
   margin: 0;
-  /* max-height: 420px; */
+  max-width: 100%;
   /* width: 100%; */
   position: relative;
   object-fit: cover;
@@ -51,10 +51,12 @@ section.about {
   grid-area: image;
   align-self: end;
   z-index: 1;
+  font-size: 3rem;
   /* position: relative;
   transform: translateY(-1.2em); */
 }
 h1 {
+  font-size: 2.5rem;
   margin-bottom: 0.5em;
 }
 
@@ -74,7 +76,7 @@ div.about-me div.social-links {
   text-align: end;
   margin-top: 3em;
   a svg {
-    width: 24px;
+    width: 1.5em;
     height: auto;
     margin: 0 2px;
   }
@@ -103,7 +105,7 @@ section.about::after {
   display: flex;
   flex-direction: row;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1000px) and (min-width: 500px) {
   section.about {
     display: block;
   }
@@ -140,6 +142,54 @@ section.about::after {
     grid-area: image;
     width: fit-content;
   }
+  main section {
+    padding-left: 1.6em;
+    padding-right: 1.6em;
+  }
+}
+@media (max-width: 499px) {
+  main {
+    font-size: 1.4em;
+  }
+  section.my-work {
+    text-align: center;
+  }
+  ul.projects {
+    justify-content: center;
+    grid-template-columns: 1fr;
+    row-gap: 2em;
+    /* padding: 2em 1.4em; */
+  }
+  section.about {
+    flex-direction: column;
+  }
+  h1.about-me-name {
+    font-size: 3rem;
+  }
+  div.about-me {
+    margin-right: 0;
+    margin-top: 0;
+  }
+  div.about-me h1 {
+    text-align: center;
+  }
+  main section {
+    padding: 0 1.4em;
+    margin: 0;
+  }
+  section.about {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .about-photo {
+    margin: 2em 1em;
+  }
+  div.about-me div.social-links {
+    text-align: center;
+  }
+
+  .projects {
+  }
 }
 section.my-work {
   --grid-col-max-size: 300px;
@@ -147,14 +197,15 @@ section.my-work {
   margin-top: 4em;
 }
 
+/* TODO: Make a more responsive grid, it should be more flexible making use of the fr unit */
 .projects {
   display: grid;
-  gap: 6em 1em;
+  gap: 1em 1em;
   justify-content: space-between;
   justify-items: center;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(var(--grid-col-max-size), 32%)
+    minmax(min(var(--grid-col-max-size), 100%), 32%)
   );
 }
 
@@ -172,6 +223,7 @@ section.my-work {
 }
 .project-description-wrapper {
   padding: 0.8em 1.2em;
+  padding-bottom: 4em;
 }
 .project-name {
   display: flex;
@@ -200,20 +252,31 @@ a.twitter svg {
 section.contact-me {
   display: flex;
   background-color: rgb(8, 145, 178);
-  padding: 3em 3em;
+  padding-top: 3em;
+  padding-bottom: 3em;
   flex-wrap: wrap;
 }
 .contact-info {
+  flex: 2 0 0%;
+  padding-right: 1em;
 }
 .contact-info > span {
   margin-top: 2em;
   display: block;
 }
 /* essa img q ta ferrando o flex wrap */
+picture.contact-img {
+  display: flex;
+  flex: 1 1 60%;
+
+  min-width: 300px;
+}
 img.contact-img {
   background-color: rgb(83, 83, 163);
-  width: 600px;
-  height: 400px;
+  max-width: 100%;
+  object-fit: cover;
+  /* width: 600px; */
+  /* height: 400px;
   margin-left: auto;
-  padding-left: 60em;
+  padding-left: 60em; */
 }

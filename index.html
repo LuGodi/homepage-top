@@ -19,7 +19,7 @@
               ./assets/cat-mac-medium.jpg 1280w,
               ./assets/cat-mac-large.jpg  1920w
             "
-            sizes="(min-width:1000px) 20vw, (min-width:600px) 44vw, 100vw"
+            sizes="(min-width:1000px) 20vw, (min-width:500px) 44vw, 100vw"
             src="./assets/cat-mac-small.jpg" />
           <h1 class="about-me-name">Lilica Koda</h1>
         </div>
@@ -274,7 +274,18 @@
           <span class="phone">5555-5555</span>
           <span class="email">bkabkabka@blabala.com</span>
         </div>
-        <!-- <img class="contact-img" /> -->
+        <!-- FIXED: flex wrap without media query would be awesome -->
+        <picture class="contact-img">
+          <source
+            media="(max-width:500px)"
+            srcset="./assets/phone-cat-494.png 494w"
+            sizes="100vw" />
+
+          <source
+            media="(max-width:1000px)"
+            srcset="./assets/phone-cat-751.png" />
+          <img src="./assets/phone-cat-1280.png" class="contact-img" />
+        </picture>
       </section>
     </main>
   </body>
