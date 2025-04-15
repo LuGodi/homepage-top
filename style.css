@@ -64,10 +64,10 @@ h1 {
 /*n, float msm*/
 div.about-me {
   background-color: white;
-  padding: 2em 1.4em;
+  padding: 4em 1.4em;
   flex-grow: 0;
   box-shadow: -3px 13px 10px 0px #5454545b;
-  margin-right: 2em;
+
   margin-top: 4em;
   margin-bottom: 4em;
   line-height: 2.5ch;
@@ -86,7 +86,7 @@ section.about::after {
   content: "";
   position: absolute;
   top: 0;
-  bottom: -360px;
+  bottom: 0;
   right: 0;
   left: 0;
   /* transform: translateY(-100px); */
@@ -95,7 +95,7 @@ section.about::after {
   padding-bottom: 5em;
 
   /* height: 30px; */
-  transform: translateY(-30%) skewY(350deg);
+  transform: translateY(-50%) skewY(345deg);
   box-shadow: 10px 5px 10px 0px #5454545b;
 
   z-index: -1;
@@ -216,15 +216,15 @@ section.my-work {
 .projects {
   --max-columns: 3;
   --min-column-size: 300px;
-  --grid-gap: 1em;
+  --grid-gap: 2em;
   --column-width-calc: calc(
     (100% - var(--grid-gap) * (var(--max-columns) - 1)) / var(--max-columns)
   );
   --min-size-col-calc: max(var(--column-width-calc), var(--min-column-size));
   display: grid;
-  gap: var(--grid-gap);
-  justify-content: space-between;
-  justify-items: center;
+  gap: calc(3 * var(--grid-gap)) var(--grid-gap);
+  /* justify-content: space-between;
+  justify-items: center; */
   grid-template-columns: repeat(
     auto-fill,
     minmax(min(var(--min-size-col-calc), 100%), 1fr)
@@ -240,7 +240,7 @@ section.my-work {
 }
 .project-screenshot {
   max-width: 100%;
-  height: 200px;
+  height: 300px;
   background-color: purple;
 }
 .project-description-wrapper {
