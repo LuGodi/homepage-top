@@ -6,8 +6,8 @@ Practicing with responsive images
 
 ### Known bugs:
 
-- if font-size changes on a device width of 300px ish it causes some weird overflows. Gotta check if its like that on more devices, probably caused by relative margins and paddings.
+- if font-size changes (goes over 25px) on a device width of 300px ish it causes some weird overflows. Gotta check if its like that on more devices, probably caused by relative margins and paddings.
 
-- I can lessen the number of media queries by making use of more advanced grid/flex properties, working on this
+- DONE - I can lessen the number of media queries by making use of more advanced grid/flex properties, working on this
 
 - Can add more accessibility
