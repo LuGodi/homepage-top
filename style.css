@@ -149,9 +149,9 @@ section.about::after {
     padding-right: 1.6em;
   }
   /* TODO remove this as soon as I make a more responsive grid */
-  ul.projects {
+  /* ul.projects {
     grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 }
 @media (max-width: 499px) {
   main {
@@ -159,12 +159,11 @@ section.about::after {
   section.my-work {
     text-align: center;
   }
-  ul.projects {
+  /* ul.projects {
     justify-content: center;
     grid-template-columns: 1fr;
     row-gap: 2em;
-    /* padding: 2em 1.4em; */
-  }
+  } */
   section.about {
     flex-direction: column;
   }
@@ -215,13 +214,20 @@ section.my-work {
 
 /* TODO: Make a more responsive grid, it should be more flexible making use of the fr unit */
 .projects {
+  --max-columns: 3;
+  --min-column-size: 300px;
+  --grid-gap: 1em;
+  --column-width-calc: calc(
+    (100% - var(--grid-gap) * (var(--max-columns) - 1)) / var(--max-columns)
+  );
+  --min-size-col-calc: max(var(--column-width-calc), var(--min-column-size));
   display: grid;
-  gap: 1em 1em;
+  gap: var(--grid-gap);
   justify-content: space-between;
   justify-items: center;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(min(var(--grid-col-max-size), 100%), 32%)
+    minmax(min(var(--min-size-col-calc), 100%), 1fr)
   );
 }
 
@@ -240,6 +246,7 @@ section.my-work {
 .project-description-wrapper {
   padding: 0.8em 1.2em;
   padding-bottom: 4em;
+  background-color: white;
 }
 .project-name {
   display: flex;
